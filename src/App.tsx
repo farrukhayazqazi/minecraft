@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 
+import Header from './components/Header/Header'
 import Users from './components/Users/Users'
+import ValidityCheckForm from './components/ValidityCheckForm/ValidityCheckForm'
 
 import axios from 'axios'
 
@@ -48,23 +50,15 @@ function App() {
 
   return (
     <div className="App">
-      <div className="flex  justify-center gap-x-3">
-        <img className='h-14 w-14' src={"https://cdn.icon-icons.com/icons2/2699/PNG/512/minecraft_logo_icon_168974.png"}/>
-        <h1 className='font-bold mb-10'>Minecraft assignment</h1>
-      </div>
+        <Header />
 
-        <p className='text-neutral-500'>Search for a username to check if it is a valid user </p>
-      <div className=" h-[24rem] text-center flex items-center justify-center">
-        <form className='space-y-6 w-[35rem] border border-neutral-200 rounded-md p-10' onSubmit={handleSubmit}>
-          <input className='w-full p-2' placeholder='Enter username here' type="text" onChange={handleChange}/>
-          <button className='w-full flex items-center justify-center' disabled={isLoading} type="submit" onClick={handleSubmit}>
-         { isLoading && <img className="animate-spin h-5 w-5 mr-3" src={"https://cdn.icon-icons.com/icons2/2699/PNG/512/minecraft_logo_icon_168974.png"}/>}
-            Submit
-          </button>
-          <p className='text-green-500 font-bold'>{message?.uuid && 'This is a valid user'}</p>
-          <p className='text-red-500 font-bold'>{error}</p>
-        </form>
-      </div>
+        <ValidityCheckForm 
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          isLoading={isLoading}
+          message={message}
+          error={error}
+        />
         
         <Users users={users} onDelete={(user) => handleUserDelete(user)}/>
     </div>
