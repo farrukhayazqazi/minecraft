@@ -12,8 +12,8 @@ interface Props {
 const Users = (props: Props) =>{
     const {users, onDelete} = props;
   return (<div className="">
-        <h2 className='font-bold'>Users</h2>
-        <div className="rounded-md space-y-4  inline-block min-w-[10rem] items-baseline gap-8">
+        <h2 className='font-bold mb-6'>Users</h2>
+        <div className="rounded-md space-y-4 inline-block min-w-[10rem] items-baseline gap-8">
             { 
             users?.map((user) => (
                 <div className="flex gap-x-2">
