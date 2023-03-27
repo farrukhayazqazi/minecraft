@@ -53,7 +53,7 @@ function App() {
         <h1 className='font-bold mb-10'>Minecraft assignment</h1>
       </div>
 
-        <p>Search for a username to check if it is a valid user </p>
+        <p className='text-neutral-500'>Search for a username to check if it is a valid user </p>
       <div className=" h-[24rem] text-center flex items-center justify-center">
         <form className='space-y-6 w-[35rem] border border-neutral-200 rounded-md p-10' onSubmit={handleSubmit}>
           <input className='w-full p-2' placeholder='Enter username here' type="text" onChange={handleChange}/>
