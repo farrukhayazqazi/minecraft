@@ -11,17 +11,17 @@ function App() {
   const [username, setUsername] = useState('')
   const [error, setError] = useState('')
   const [message, setMessage] = useState<any>(null)
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState<any[]>([])
   const [isLoading, setIsLoading] = useState(false)
 
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     error && setError('')
     message && setMessage(null)
     setUsername(e.target.value);
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (username) {
       const alreadyExists =  users.filter((user) => user?.username.toUpperCase() == username.toUpperCase())
@@ -59,7 +59,7 @@ function App() {
           message={message}
           error={error}
         />
-        
+
         <Users users={users} onDelete={(user) => handleUserDelete(user)}/>
     </div>
   )
