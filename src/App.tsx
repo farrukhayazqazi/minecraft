@@ -35,6 +35,7 @@ function App() {
         setMessage(res.data)
       } catch (e) {
         setError('This user does not exists')
+        setIsLoading(false);
       }
     } else {
       setError('Please enter a username');
